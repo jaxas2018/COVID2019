@@ -5,26 +5,88 @@ import java.util.Map;
 
 public class Beginner1 {
 
+	static Node head; 
+	  
+    static class Node { 
+  
+        int data; 
+        Node next; 
+  
+        Node(int d) { 
+            data = d; 
+            next = null; 
+        } 
+    } 
+    
 	public static void main(String[] args) {
-		HashMap<Integer,String> map=new HashMap<Integer,String>();
-		map.put(5,"Five");
-		map.put(2,"Two");
-		map.put(8,"Eight");
-		map.put(6,"Six");
-		map.put(4,"Four");
+		Beginner1 list = new Beginner1(); 
+        list.head = new Node(85); 
+        list.head.next = new Node(15); 
+        list.head.next.next = new Node(4); 
+        list.head.next.next.next = new Node(20); 
+          
+        System.out.println("Given Linked list"); 
+        list.printList(head); 
+        head = list.reverse(head); 
+        System.out.println(""); 
+        System.out.println("Reversed linked list "); 
+        list.printList(head);
+        
+		/*
+		 * head = list.insertAtN(head,100,3); list.printList(head);
+		 */
+        
 		
-		String text=map.get(6);
-		System.out.println(text);
-		
-		for (int i =0; i<100;i++) {
-			for (Map.Entry<Integer,String> entry:map.entrySet()) {
-				int key= entry.getKey();
-				String value= entry.getValue();
-				System.out.println(key+","+value);
-			}
-			System.out.println("\n \n");
-		}
 	}
+	// prints content of double linked list 
+    void printList(Node node) { 
+        while (node != null) { 
+            System.out.print(node.data + " "); 
+            node = node.next; 
+        } 
+    } 
+    
+    Node reverse(Node node) {
+    	if(head == null) {
+    		return head; 
+    	}
+    	
+    	Node pointer = head; 
+    	
+    	while(node.next.next != null) {
+    		pointer = pointer.next;
+    		node = node.next.next;
+    	}
+    	
+    	 head = node;
+    	
+    	 while(node != null) {
+    		 node.next = pointer;
+    		 node = node.next; 
+    	 }
+    	 
+    	 node.next = null; 
+    	
+    	 
+        return head; 
+    }
+    
+    Node insertAtN(Node node,int data, int position) {
+    	Node newNode = new Node(data);
+    	if (position == 0) {
+    		return newNode;
+    	}
+    	int counter = 1;
+    	Node previous = head;
+    	while (previous!=null && counter<position-1) {
+    		previous = previous.next;	
+    		counter++;
+    	}
+    	newNode.next=previous.next;
+    	previous.next=newNode;
+    	return head;
+    	
+    }
 	
 	
 		 

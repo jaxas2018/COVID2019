@@ -18,12 +18,12 @@ public class MultipleFieldSorter {
                  new Employee(5, "A", "B", 25),
                  new Employee(5, "A", "C", 25),
                  new Employee(5, "A", "C", 26));
-/*
+ 
 		 Collections.sort(list, new FirstNameSorter()
          .thenComparing(new LastNameSorter())
          .thenComparing(new AgeSorter()));
-
-		 System.out.println(list);*/
+/*
+		 System.out.println(list); 
 		 Collections.sort(list, new Comparator<Employee>() 
 	        {
 	            public int compare(Employee empOne, Employee empTwo) 
@@ -34,7 +34,7 @@ public class MultipleFieldSorter {
 	                        .append(empOne.getAge(), empTwo.getAge())
 	                        .toComparison();
 	            }
-	        });
+	        });*/
 	 
 	        System.out.println(list);   //Sorted list
     }

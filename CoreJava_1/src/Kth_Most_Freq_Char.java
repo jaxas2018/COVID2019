@@ -1,7 +1,7 @@
 
 
 import java.util.ArrayList;
-import java.util.Collection;
+ 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ public class Kth_Most_Freq_Char {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int k=3;
+		int k=4;
 		kthMostFreq("agcaabbbca",k);
 
 	}
@@ -35,7 +35,9 @@ public class Kth_Most_Freq_Char {
 	        List<Map.Entry<Character, Integer>> list = new ArrayList<>(counter.entrySet());
 	        Collections.sort(list, new Comparator<Map.Entry<Character, Integer>>() {
 	            public int compare(Map.Entry<Character, Integer> o1, Map.Entry<Character, Integer> o2) {
-	                return o2.getValue().compareTo(o1.getValue());
+	                
+	            	
+	            	return o2.getValue().compareTo(o1.getValue());
 	            }
 	        });
 	        
